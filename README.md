@@ -1,4 +1,4 @@
-Rock Web Engineer - Web Project Proposal 
+Rock Web Front-End Engineer - Web Project Proposal 
 ==========================================================================================
 
 ## Document about the position
