@@ -47,7 +47,7 @@ The main task is to implement a simple kanban board for tasks, for this we have 
 
 ## Questions
 
-You can send questions through GitHub as an issue or as an email to [matheus@shiny.team](mailto:matheus@shiny.team)
+You can send questions through GitHub as an issue or as an email to [matheus@rock.so](mailto:matheus@rock.so)
 ## Project setup
 ```
 npm install
