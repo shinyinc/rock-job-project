@@ -1,9 +1,12 @@
-Rock Job Interview - Web Project Proposal 
+Rock Web Front-End Engineer - Web Project Proposal 
 ==========================================================================================
+
+## Document about the position
+[Web Front-End Engineer at Rock.pdf](https://github.com/shinyinc/rock-job-project/files/6756482/Web.Front-End.Engineer.at.Rock.pdf)
 
 ## Background
 
-### These are the main technologies that you will be using in our Web Development ecosystem.
+These are the main technologies that you will be using in our Web Development ecosystem.
 
 * Vue & Vuex
 * Typescript
@@ -15,18 +18,18 @@ Rock Job Interview - Web Project Proposal
 
 ## Objective
 
-### The objective of this project is to evaluate your capability to work with some of the technologies we use daily in Rock. We highly value things like performance and robust tests, so make sure to keep this in mind when doing this projct.
+The objective of this project is to evaluate your capability to work with some of the technologies we use daily in Rock. We highly value things like performance and robust tests, so make sure to keep this in mind when doing this projct.
 
 ## Tasks
 
-### The main task is to implement a simple kanban board for tasks, for this we have some required tasks you need to complete.
+The main task is to implement a simple kanban board for tasks, for this we have some required tasks you need to complete.
 
 * Fork this repository and use it as the base for your project
 * Fetch the tasks from our back-end using the included API and endpoint
 * Use Vue and Vuex to render the kanban board
 
 ## Bonus Tasks
-### These are not required, but highly valued. 
+### These are not required, but highly valued, so don't let these dishearten you
 
 * Implement a simple task search function based on title
 * Implement Drag and Drop of tasks to move it from one list to another
@@ -42,6 +45,9 @@ Rock Job Interview - Web Project Proposal
 ### This is a simplified version of our own kanban board at Rock.
 <img width="1256" alt="design" src="https://user-images.githubusercontent.com/7635617/124207246-7618ac00-dabb-11eb-8925-77172d334cf5.png">
 
+## Questions
+
+You can send questions through GitHub as an issue or as an email to [matheus@shiny.team](mailto:matheus@shiny.team)
 ## Project setup
 ```
 npm install
