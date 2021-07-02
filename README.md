@@ -33,6 +33,7 @@ The main task is to implement a simple kanban board for tasks, for this we have 
 
 * Implement a simple task search function based on title
 * Implement Drag and Drop of tasks to move it from one list to another
+* Implement Drag and Drop of tasks to change the order of tasks within the same list
 * Implement E2E tests
 * Implement unit tests
 * Implement search engine indexing for faster searches based on title and task body
