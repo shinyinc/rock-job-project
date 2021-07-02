@@ -42,6 +42,9 @@ Rock Job Interview - Web Project Proposal
 ### This is a simplified version of our own kanban board at Rock.
 <img width="1256" alt="design" src="https://user-images.githubusercontent.com/7635617/124207246-7618ac00-dabb-11eb-8925-77172d334cf5.png">
 
+## Questions
+
+### You can send questions through GitHub as an issue or as an email to [matheus@shiny.team](mailto:matheus@shiny.team)
 ## Project setup
 ```
 npm install
