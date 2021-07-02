@@ -15,7 +15,7 @@ These are the main technologies that you will be using in our Web Development ec
 
 ## Objective
 
-### The objective of this project is to evaluate your capability to work with some of the technologies we use daily in Rock. We highly value things like performance and robust tests, so make sure to keep this in mind when doing this projct.
+The objective of this project is to evaluate your capability to work with some of the technologies we use daily in Rock. We highly value things like performance and robust tests, so make sure to keep this in mind when doing this projct.
 
 ## Tasks
 
@@ -26,7 +26,7 @@ The main task is to implement a simple kanban board for tasks, for this we have 
 * Use Vue and Vuex to render the kanban board
 
 ## Bonus Tasks
-### These are not required, but highly valued. 
+### These are not required, but highly valued, so don't let these dishearten you
 
 * Implement a simple task search function based on title
 * Implement Drag and Drop of tasks to move it from one list to another
