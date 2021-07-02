@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package protos;
+
+import "protos/models.proto";
+
+message APIRequest {
+  // a client specified request id, will be returned in the response message.
+  int32 id = 1;
+  bytes access_token = 2;
+
+  oneof request {
+    ObjsReq objs = 10;
+    TaskListsReq task_lists = 11;
+  }
+}
+
+message APIResponse {
+  int32 id = 1;
+
+  enum Error {
+    OK = 0;
+    INVALID_ACCESS_TOKEN = 1;
+    INVALID_METHOD = 2;
+    INVALID_REQUEST = 3;
+  }
+
+  Error error = 2;
+
+  oneof response {
+    ObjsResp objs = 10;
+    TaskListsResp task_lists = 11;
+  }
+}
+
+message ObjsReq {
+  // Use R48eLYA0 as the space id for this project
+  string space_id = 1;
+
+  oneof method {
+    ObjId get = 10;
+    // Fetch multiple objects at once; up to 100 IDs can be passed in one request, if more IDs are passed, TOO_MANY_IDS error
+    // is returned
+    ObjIds get_many = 11;
+  }
+}
+
+message ObjsResp {
+  enum Error {
+    OK = 0;
+    INVALID_SPACE = 1;
+    INVALID_OBJ_ID = 2;
+  }
+
+  Error error = 1;
+  oneof result {
+    SpaceObj get = 10;
+    // Only existed IDs will be returned
+    IdObjMap get_many = 11;
+  }
+}
+
+message TaskListsReq {
+  // Use R48eLYA0 as the space id for this project
+  string space_id = 1;
+
+  oneof method {
+    // Set true to get all lists
+    bool get_all = 10;
+    // Set order of tasks in a list
+    SetTasksOrder set_tasks_order = 11;
+    // Move the task between lists or within the same list specifying the new list position
+    MoveTask move_task = 12;
+  }
+
+  message SetTasksOrder {
+    uint32 list_id = 1;
+    repeated uint32 tasks_ids = 2;
+  }
+
+  message MoveTask {
+    // The task to move
+    uint32 task_id = 1;
+    // The current task list ID as FE sees it (will be used to check if no parallel update is happening)
+    uint32 current_list_id = 2;
+    // The target list ID to move the task to (NOTE: list ID 0 to archive a task is supported as well)
+    uint32 target_list_id = 3;
+    // The index of a task in a new list; if index is >= list length, it's put to the end of the list
+    uint32 list_index = 4;
+  }
+}
+
+message TaskListsResp {
+  enum Error {
+    OK = 0;
+    INVALID_SPACE = 1;
+  }
+  Error error = 1;
+
+  oneof result {
+    TaskLists get_all = 10;
+    SetTasksOrder set_tasks_order = 11;
+    MoveTask move_task = 12;
+  }
+
+  message SetTasksOrder {
+    enum Error {
+      OK = 0;
+      INVALID_LIST_ID = 1;
+      INVALID_TASK_IDS = 2;
+    }
+    Error error = 1;
+
+    // if OK
+    TaskList list = 2;
+  }
+
+  message MoveTask {
+    enum Error {
+      OK = 0;
+      INVALID_LIST_ID = 1; // The target list ID is invalid
+      INVALID_TASK_ID = 2; // The provided task ID is invalid
+      MISMATCHED_CURRENT_LIST_ID = 3; // current_list_id is not the one task assigned to, reload the board
+    }
+    Error error = 1;
+    SpaceObj task = 2; // An updated task is returned if there was no error
+  }
+}

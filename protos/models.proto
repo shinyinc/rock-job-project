@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package protos;
+
+enum SpaceApp {
+  NOT_AN_APP = 0;
+  TASKS = 1;
+  NOTES = 2;
+  FILES = 3;
+}
+
+message ObjId {
+  SpaceApp app = 1;
+  uint32 id = 2;
+}
+
+message ObjIds {
+  SpaceApp app = 1;
+  // The list below could contain up to 100 elements in one call, otherwise TOO_MANY_IDS error is returned
+  repeated uint32 ids = 2;
+}
+
+message IdObjMap {
+  map<uint32, SpaceObj> objs = 1;
+}
+
+message Uint32Ids {
+  repeated uint32 ids = 1;
+}
+
+message TaskList {
+  // List id
+  uint32 id = 1;
+  // List name
+  string name = 2;
+  // ARGB color format follows Flutter Color class https://api.flutter.dev/flutter/dart-ui/Color-class.html
+  uint32 color = 3;
+  // A flag to indicate whether this state is final, e.g. the tasks in this state are considered "done"/"completed"
+  bool completed = 4;
+  // Version increased by 1 every time the list was edited
+  uint32 ver = 5;
+  // The tasks in the list. The order of ids in this field decides the order of the tasks in the list.
+  repeated uint32 task_ids = 6;
+}
+
+message TaskLists {
+  // UI should respect the order when rendering the lists.
+  repeated TaskList lists = 1;
+}
+
+message Task {
+  string title = 1;
+  uint32 list_id = 2;
+  string body = 3;
+  // Valid values are 2, 1, 0, -1, and -2 stands for Urgent, High, Medium, Low and Lowest.
+  // Default is 0 or medium
+  sint32 priority = 4;
+}
+
+message SpaceObj {
+  // Sequential id starting from 1 in the scope of a space app. E.g. tasks id goes by 1, 2, 3 ...
+  uint32 id = 1;
+  SpaceApp app = 2;
+  // number of comments
+  uint32 comments = 3;
+  // Version increased by 1 every time the obj was edited
+  uint32 ver = 4;
+
+  oneof data {
+    Task task = 101;
+  }
+}
