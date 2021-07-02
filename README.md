@@ -3,7 +3,7 @@ Rock Job Interview - Web Project Proposal
 
 ## Background
 
-### These are the main technologies that you will be using in our Web Development ecosystem.
+These are the main technologies that you will be using in our Web Development ecosystem.
 
 * Vue & Vuex
 * Typescript
@@ -19,7 +19,7 @@ Rock Job Interview - Web Project Proposal
 
 ## Tasks
 
-### The main task is to implement a simple kanban board for tasks, for this we have some required tasks you need to complete.
+The main task is to implement a simple kanban board for tasks, for this we have some required tasks you need to complete.
 
 * Fork this repository and use it as the base for your project
 * Fetch the tasks from our back-end using the included API and endpoint
@@ -44,7 +44,7 @@ Rock Job Interview - Web Project Proposal
 
 ## Questions
 
-### You can send questions through GitHub as an issue or as an email to [matheus@shiny.team](mailto:matheus@shiny.team)
+You can send questions through GitHub as an issue or as an email to [matheus@shiny.team](mailto:matheus@shiny.team)
 ## Project setup
 ```
 npm install
